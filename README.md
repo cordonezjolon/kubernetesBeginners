@@ -1,1 +1,1 @@
-# Practicas de Kubernetes para iniciar con Minikube/Kind
+# Kubernetes course using Minikube configuration on Docker Desktop
