@@ -21,6 +21,13 @@ spec:
       containers:
         - name: postgres
           image: postgres
+          resources:
+            requests:
+              memory: "128Mi"  # Request 128MB of memory
+              cpu: "100m"      # Request 0.1 CPU core
+            limits:
+              memory: "154Mi"  # Limit memory usage to 128MB + 20%
+              cpu: "120m"      # Limit CPU usage to 0.1 CPU core + 20%
           ports:
             - containerPort: 5432
           env:

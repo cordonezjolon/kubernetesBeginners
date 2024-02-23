@@ -21,5 +21,12 @@ spec:
       containers:
         - name: redis
           image: redis
+          resources:
+            requests:
+              memory: "64Mi"   # Request 64MB of memory
+              cpu: "50m"       # Request 0.05 CPU core
+            limits:
+              memory: "77Mi"   # Limit memory usage to 64MB + 20%
+              cpu: "60m"       # Limit CPU usage to 0.05 CPU core + 20%
           ports:
             - containerPort: 6379

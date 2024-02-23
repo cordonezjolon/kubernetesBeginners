@@ -21,5 +21,12 @@ spec:
       containers:
         - name: voting-app
           image: kodekloud/examplevotingapp_vote:v1
+          resources:
+            requests:
+              memory: "128Mi"  # Request 128MB of memory
+              cpu: "100m"      # Request 0.1 CPU core
+            limits:
+              memory: "154Mi"  # Limit memory usage to 128MB + 20%
+              cpu: "120m"  
           ports:
             - containerPort: 80
