@@ -1,1 +1,1 @@
-# Kubernetes course using Minikube configuration on Docker Desktop
+# Kubernetes courses
