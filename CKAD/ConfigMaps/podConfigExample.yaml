@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-2
+  labels:
+    env: production
+    type: front-end
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    ports:
+      - containerPort: 8080
+#First  way to get values 
+    envFrom:
+      - configMapRef:
+          name: app-config
+#Second way to get values 
+    # env:
+    #   - name: APP_COLOR
+    #     valueFrom:
+    #       configMapKeyRef:
+    #         name: app-config
+    #         key: APP_COLOR
