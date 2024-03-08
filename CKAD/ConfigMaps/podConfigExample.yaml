@@ -11,11 +11,11 @@ spec:
     image: nginx
     ports:
       - containerPort: 8080
-#First  way to get values 
+#First  way to get values from all configs for this container
     envFrom:
       - configMapRef:
           name: app-config
-#Second way to get values 
+# Second way to get values for specific configs 
     # env:
     #   - name: APP_COLOR
     #     valueFrom:
