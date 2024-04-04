@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-pod
+  labels:
+    app: myapp
+spec:
+  containers:
+  - name: myapp-container
+    image: busybox:1.28
+    ports: 
+      - containerPort: 8080
+    livenessProbe: 
+  # Readiness Probe with http api service
+      httpGet: 
+        path: /api/ready
+        port: 8080
+        initialDelaySeconds: 10 # if you know the application takes 10 seconds to warm up 
+        periodSeconds: 5 # To set how often the probe is going to be executed
+        failureThreshold: 8 # By default 3 attemps if you wannt to change it set this property
+    # Readiness Probe with TCP socket service
+      tcpSocket: 
+        port: 3306
+    # Readiness Probe with command
+      exec: 
+        command:
+          - cat
+          - /app/is_ready
+    command: ['sh', '-c', 'echo The app is running! && sleep 3600']
