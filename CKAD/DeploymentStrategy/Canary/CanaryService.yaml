@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: canary-deployment
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: frontend # With this selector the trafic is going to send by number of pod to each deployment. 

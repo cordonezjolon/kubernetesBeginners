@@ -15,9 +15,9 @@ spec:
       httpGet: 
         path: /api/ready
         port: 8080
-        initialDelaySeconds: 10 # if you know the application takes 10 seconds to warm up 
-        periodSeconds: 5 # To set how often the probe is going to be executed
-        failureThreshold: 8 # By default 3 attemps if you wannt to change it set this property
+      initialDelaySeconds: 10 # if you know the application takes 10 seconds to warm up 
+      periodSeconds: 5 # To set how often the probe is going to be executed
+      failureThreshold: 8 # By default 3 attemps if you wannt to change it set this property
     # Readiness Probe with TCP socket service
       tcpSocket: 
         port: 3306
