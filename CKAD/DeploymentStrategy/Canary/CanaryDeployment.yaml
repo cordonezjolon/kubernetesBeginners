@@ -10,7 +10,7 @@ spec:
     metadata:
       name: nginx-2
       labels:
-        app: myapp
+        app: frontend
         version: v2
     spec:
       containers:
@@ -19,5 +19,4 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: myapp
-      version: v2
+      app: frontend
