@@ -1,0 +1,21 @@
+# Fro CronJobs you can schedule the execution for a specific job and run it many times by schedule definition.
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: throw-dice-cron-job
+spec:
+  schedule: '30 21 * * *' # To see more about Cron expresions https://www.baeldung.com/cron-expressions
+  jobTemplate:
+    spec:
+      completions: 3 # Number of pod to create to execute the job 
+      parallelism: 3 # Number of pod to create at the same time     
+      backoffLimit: 25
+      template:
+        metadata:
+          creationTimestamp: null
+        spec:
+          containers:
+          - image: kodekloud/throw-dice
+            name: throw-dice-job
+            resources: {}
+          restartPolicy: Never
