@@ -1,0 +1,21 @@
+apiVersion: extensions/vlbeta1
+kind: Ingress
+metadata:
+  name: ingress-wear-watch
+spec:
+  rules:
+  - http:
+     paths:
+     - path: /wear
+       pathType: Prefix
+       backend:
+        service:
+          name: wear-service
+          port: 
+            number: 80
+     - path: /watch
+       backend:
+        service: 
+          name: watch-service
+          port: 
+            number: 80
