@@ -4,7 +4,7 @@ metadata:
   name: db-policy
 spec :
   podSelector:
-    matchLabels: # Selector to apply this policy
+     matchLabels: # Selector to apply this policy
      role: db 
   policyTypes :
   - Ingress

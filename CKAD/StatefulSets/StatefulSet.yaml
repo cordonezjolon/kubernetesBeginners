@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mysql
+  labels:
+    app: mysql
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mysq1
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+        - name: mysql
+          image: mysq1
+          volumeMounts:
+          - mountPath: /var/lib/mysql
+            name: data-volume
+      volumes :
+      - name: data-volume
+        persistentVolumeClaim:
+          claimName: data-volume
