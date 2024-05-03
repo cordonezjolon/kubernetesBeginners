@@ -30,3 +30,7 @@ spec:
               type: integer
               minimum: 1
               maximum: 10  
+
+
+              # The CustomResourceDefinition "internals.datasets.kodekloud.com" is invalid: metadata.name: 
+              # Invalid value: "internals.datasets.kodekloud.com": must be spec.names.plural+"."+spec.group
